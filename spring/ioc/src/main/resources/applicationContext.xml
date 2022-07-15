@@ -5,4 +5,11 @@
 
     <bean id="bookDao" class="org.example.dao.impl.BookDaoImpl" />
     <bean id="bookService" class="org.example.service.impl.BookServiceImpl" />
+    <!-- 静态工厂 -->
+    <bean id="orderDao" class="org.example.factory.OrderDaoFactory" factory-method="getOrderDao" />
+    <!-- 实例工厂 -->
+    <bean id="userDaoFactory" class="org.example.factory.UserDaoFactory" />
+    <bean id="userDao" factory-bean="userDaoFactory" factory-method="getUserDao" />
+    <!-- 使用 FactoryBean 实例化 -->
+    <bean id="userDao2" class="org.example.factory.UserDaoFactoryBean" />
 </beans>

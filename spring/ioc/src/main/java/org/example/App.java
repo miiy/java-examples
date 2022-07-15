@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.dao.BookDao;
+import org.example.dao.OrderDao;
+import org.example.dao.UserDao;
 import org.example.service.BookService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,5 +20,14 @@ public class App {
 
         BookService bookService = (BookService) ctx.getBean("bookService");
         bookService.save();
+
+        OrderDao orderDao = (OrderDao) ctx.getBean("orderDao");
+        orderDao.save();
+
+        UserDao userDao = (UserDao) ctx.getBean("userDao");
+        userDao.save();
+
+        UserDao userDao2 = (UserDao) ctx.getBean("userDao2");
+        userDao2.save();
     }
 }
