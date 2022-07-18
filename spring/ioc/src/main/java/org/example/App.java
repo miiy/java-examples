@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.dao.ArticleDao;
 import org.example.dao.BookDao;
 import org.example.dao.OrderDao;
 import org.example.dao.UserDao;
@@ -14,6 +15,8 @@ public class App {
         // 3.创建Spring配置文件，定义bean
         // 4.获取IOC容器
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ctx.registerShutdownHook();
         // 5.获取Bean
 //        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
 //        bookDao.save();
@@ -29,5 +32,11 @@ public class App {
 
         UserDao userDao2 = (UserDao) ctx.getBean("userDao2");
         userDao2.save();
+
+        ArticleDao articleDao = (ArticleDao) ctx.getBean("articleDao");
+        articleDao.save();
+
+        ArticleDao articleDao2 = ctx.getBean(ArticleDao.class);
+        articleDao2.save();
     }
 }
