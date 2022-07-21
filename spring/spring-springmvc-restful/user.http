@@ -1,0 +1,32 @@
+POST http://localhost:80/users
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "zhangsan"
+}
+
+###
+
+DELETE http://localhost:80/users/1
+
+###
+
+PUT http://localhost:80/users
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "zhangsan"
+}
+
+###
+
+GET http://localhost:80/users/1
+
+###
+
+GET http://localhost:80/users
+
+###
+
