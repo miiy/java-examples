@@ -1,0 +1,35 @@
+POST http://localhost:80/books
+Content-Type: application/json
+
+{
+  "type": "cs",
+  "name": "java",
+  "description": "java desc"
+}
+
+###
+
+DELETE http://localhost:80/books/1
+
+###
+
+PUT http://localhost:80/books
+Content-Type: application/json
+
+{
+  "id": 1,
+  "type": "cs1",
+  "name": "java1",
+  "description": "java desc1"
+}
+
+###
+
+GET http://localhost:80/books/1
+
+###
+
+GET http://localhost:80/books
+
+###
+
