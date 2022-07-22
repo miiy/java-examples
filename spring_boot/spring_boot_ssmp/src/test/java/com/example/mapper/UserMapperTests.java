@@ -1,10 +1,10 @@
-package com.example.dao;
+package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.domain.User;
+import com.example.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,27 +12,27 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class UserDaoTests {
+public class UserMapperTests {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Test
     public void testQuery() {
         QueryWrapper<User> qw = new QueryWrapper<>();
         qw.lambda().eq(User::getName, "zhangsan");
-        List<User> userList = userDao.selectList(qw);
+        List<User> userList = userMapper.selectList(qw);
         System.out.println(userList);
 
         LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<>();
         lqw.eq(User::getName, "lisi");
-        User user = userDao.selectOne(lqw);
+        User user = userMapper.selectOne(lqw);
         System.out.println(user);
     }
     @Test
     public void testSelectPage() {
         IPage page = new Page(1, 1);
-        userDao.selectPage(page, null);
+        userMapper.selectPage(page, null);
         System.out.println(page.getPages());
         System.out.println(page.getTotal());
         System.out.println(page.getRecords());
@@ -43,6 +43,6 @@ public class UserDaoTests {
         User user = new User();
         user.setName("a1");
         user.setPassword("123123");
-        userDao.insert(user);
+        userMapper.insert(user);
     }
 }
