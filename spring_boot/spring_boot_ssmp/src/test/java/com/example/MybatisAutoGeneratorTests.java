@@ -3,24 +3,21 @@ package com.example;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import org.apache.ibatis.annotations.Mapper;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-//@PropertySource("classpath:application.yml")
 class MybatisAutoGeneratorTests {
 //
-//    @Value("${spring.dataSource.url}")
+    @Value("${spring.datasource.url}")
     public String url;
-//    @Value("${spring.dataSource.username}")
+    @Value("${spring.datasource.username}")
     public String username;
-//    @Value("${spring.dataSource.password}")
+    @Value("${spring.datasource.password}")
     public String password;
 
     @Test
     void testFastAutoGenerator() {
-        url = "jdbc:mysql://localhost:3306/spring_db?serverTimezone=UTC";
-        username= "root";
-        password = "123456";
 
         FastAutoGenerator.create(url, username, password)
                 .globalConfig(builder -> {
